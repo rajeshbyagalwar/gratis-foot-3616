@@ -1,9 +1,15 @@
 import { Search2Icon } from "@chakra-ui/icons"
-import { Box, Center, Divider, HStack, Image, Input, InputGroup, InputLeftElement, Text } from "@chakra-ui/react"
+import { IconName, IoPerson, IoPersonSharp } from "react-icons/io5";
+
+import { Box, Button, Center, Divider, HStack, Image, Input, InputGroup, InputLeftElement, Text } from "@chakra-ui/react"
 import { Link } from "react-router-dom"
 import { AiOutlineHeart, AiOutlineShopping } from "react-icons/ai";
 import "./Navbar.css"
 import { useState } from "react";
+
+
+
+
 function Navbar() {
     const style = {
         textDecoration: "none",
@@ -13,6 +19,8 @@ function Navbar() {
     const [isVisible, setInvisible] = useState(false)
     const [state, setState] = useState(false)
     const [more,setMore] = useState(false)
+    const [login,setLogin] = useState(false)
+
     return (
         <>
             <Box h="4rem" w="full" borderBottom="1px solid gray" bg="#f4f4f7">
@@ -26,19 +34,19 @@ function Navbar() {
 
                     </Box>
 
-                    <Box className="items" p="1rem 0.5rem 1.4rem 0.5rem" fontSize="14px" fontFamily="Arial,sans-serif" display="inline-block" position="relative" p="1rem 0.5rem 1.4rem 0.5rem" fontSize="14px" fontFamily="Arial,sans-serif" onMouseOver={() => setState(true)} onMouseOut={() => setState(false)}>
+                    <Box className="items" p="1rem 0.5rem 1.4rem 0.5rem" fontSize="14px" fontFamily="Arial,sans-serif" display="inline-block" position="relative"   onMouseOver={() => setState(true)} onMouseOut={() => setState(false)}>
                         <Link to="/mens">Mens</Link> 
                     </Box>
 
-                    <Box className="items" p="1rem 0.5rem 1.4rem 0.5rem" fontSize="14px" fontFamily="Arial,sans-serif" display="inline-block" position="relative" p="1rem 0.5rem 1.4rem 0.5rem" fontSize="14px" fontFamily="Arial,sans-serif" onMouseOver={() => setState(true)} onMouseOut={() => setState(false)}>
+                    <Box className="items" p="1rem 0.5rem 1.4rem 0.5rem" fontSize="14px" fontFamily="Arial,sans-serif" display="inline-block" position="relative"  onMouseOver={() => setState(true)} onMouseOut={() => setState(false)}>
                         <Link to="/kids">Kids</Link>
                     </Box>
 
 
-                    <Box className="items" p="1rem 0.5rem 1.4rem 0.5rem" fontSize="14px" fontFamily="Arial,sans-serif" display="inline-block" position="relative" p="1rem 0.5rem 1.4rem 0.5rem" fontSize="14px" fontFamily="Arial,sans-serif" onMouseOver={() => setState(true)} onMouseOut={() => setState(false)}>
+                    <Box className="items" p="1rem 0.5rem 1.4rem 0.5rem" fontSize="14px" fontFamily="Arial,sans-serif" display="inline-block"  onMouseOver={() => setState(true)} onMouseOut={() => setState(false)}>
                         <Link to="/shoes&bags">Shoes & Bags</Link>
                     </Box>
-                    <Box className="items" p="1rem 0.5rem 1.4rem 0.5rem" fontSize="14px" fontFamily="Arial,sans-serif" display="inline-block" position="relative" p="1rem 0.5rem 1.4rem 0.5rem" fontSize="14px" fontFamily="Arial,sans-serif" onMouseOver={() => setState(true)} onMouseOut={() => setState(false)}>
+                    <Box className="items" p="1rem 0.5rem 1.4rem 0.5rem" fontSize="14px" fontFamily="Arial,sans-serif" display="inline-block" position="relative"  onMouseOver={() => setState(true)} onMouseOut={() => setState(false)}>
                         <Link to="/beauty">Beauty</Link>
                     </Box>
 
@@ -55,11 +63,12 @@ function Navbar() {
                         </InputGroup>
                     </Box>
 
-                    <Box className="items" p="1rem 0.5rem 1.4rem 0.5rem" fontSize="14px" fontFamily="Arial,sans-serif" display="inline-block" position="relative" p="1rem 0.5rem 1.4rem 0.5rem" fontSize="14px" fontFamily="Arial,sans-serif" onMouseOver={() => setMore(true)} onMouseOut={() => setMore(false)}>
+                    <Box className="items" p="1rem 0.5rem 1.4rem 0.5rem" fontSize="14px" fontFamily="Arial,sans-serif" display="inline-block" position="relative"  onMouseOver={() => setMore(true)} onMouseOut={() => setMore(false)}>
                         <Link to="/more" >More</Link>
                     </Box>
-                    <Box color="black" className="items" p="1rem 0.5rem 1.4rem 0.5rem" fontSize="14px" fontFamily="Arial,sans-serif">
-                        <Link to="/signup/signin">SignUp/Sign In</Link>
+                    <Box onClick={()=>setLogin(!login) } color="black" className="items" p="1rem 0.5rem 1.4rem 0.5rem" fontSize="14px" fontFamily="Arial,sans-serif" >
+                    <Link to="/signup/signin">Signup/Signin</Link>
+                      
                     </Box>
                     <Box >
                         <AiOutlineHeart size="35px" />
@@ -302,8 +311,6 @@ function Navbar() {
     )
 }
 export default Navbar
-
-
 
 
 
