@@ -1,5 +1,7 @@
 import {Routes,Route} from "react-router-dom"
-import Beauty from "./Beauty"
+import Beauty from "../Beauty"
+import Home from "./Home"
+// import Beauty from "./Beauty"
 import Kids from "./Kids"
 import Mens from "./Mens"
 import More from "./More"
@@ -12,7 +14,8 @@ function AllRoutes(){
 return(
         <>
         <Routes>
-            <Route path="/womens" element={<Womens/>}></Route>
+          <Route path="/" element={<Home/>}></Route>
+          <Route path="/womens" element={<Womens/>}></Route>
             <Route path="/mens" element={<Mens/>}></Route>
             <Route path="/kids" element={<Kids/>}></Route>
             <Route path="/shoes&bags" element={<ShoesAndBags/>}></Route>
@@ -21,7 +24,7 @@ return(
             <Route path="/more" element={<More/>}></Route>
             <Route path="/signup/signin" element={<Signup/>}></Route>
             <Route path="/navigate" element={<Otp/>}></Route>
-           
+            
         </Routes>
         </>
     )
