@@ -1,7 +1,7 @@
 import { Search2Icon } from "@chakra-ui/icons"
 import { IconName, IoPerson, IoPersonSharp } from "react-icons/io5";
 
-import { Box, Button, Center, Divider, HStack, Image, Input, InputGroup, InputLeftElement, Text } from "@chakra-ui/react"
+import { Box, Button, Center, Divider, HStack, Image, Input, InputGroup, InputLeftElement, Text} from "@chakra-ui/react"
 import { Link } from "react-router-dom"
 import { AiOutlineHeart, AiOutlineShopping } from "react-icons/ai";
 import "./Navbar.css"
@@ -22,12 +22,14 @@ function Navbar() {
     const [login,setLogin] = useState(false)
 
     return (
-        <>
+   <Box>
             <Box h="4rem" w="full" borderBottom="1px solid gray" bg="#f4f4f7">
                 <HStack gap="0px" display="flex" justifyContent="space-around" w="90%" marginLeft="65px" bg="#f4f4f7">
-                    <Box >
-                        <Image src="https://blog.lifestylestores.com/wp-content/uploads/2020/10/logo-lifestyle.png" />
-                    </Box>
+                  
+                     <Box>
+                         <Link to="/"><img src="https://blog.lifestylestores.com/wp-content/uploads/2020/10/logo-lifestyle.png" alt=""/></Link>   
+                            </Box>
+                    
                     <Box className="items" display="inline-block" position="relative" p="1rem 0.5rem 1.4rem 0.5rem" fontSize="14px" fontFamily="Arial,sans-serif" onMouseOver={() => setInvisible(true)} onMouseOut={() => setInvisible(false)}>
 
                         <Link to="/womens">Womens</Link>
@@ -307,7 +309,8 @@ function Navbar() {
   
      
 
-        </>
+</Box>
+
     )
 }
 export default Navbar

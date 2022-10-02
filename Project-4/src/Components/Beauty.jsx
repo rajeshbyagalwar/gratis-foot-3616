@@ -1,10 +1,10 @@
 import {  Alert, AlertDescription, AlertIcon, AlertTitle, Box, Button, Grid, Image, Text } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
-import "./Mens.css"
+
 const FetchData = async (page) => {
   try {
     let res = await fetch(
-      `https://www2.hm.com/en_in/women/new-arrivals/view-all/_jcr_content/main/productlisting.display.json?_limit=10&_page=${page}sort=stock&image-size=small&image=model&offset=36&`
+      `http://makeup-api.herokuapp.com/api/v1/products.json`
     );
     let data = res.json();
     return data;
@@ -12,7 +12,7 @@ const FetchData = async (page) => {
     console.log("error");
   }
 };
- function Womens() {
+ function Beauty() {
   const [post, setPost] = useState([]);
   const [loading, setloading] = useState(false);
   const [page, setPage] = useState(1);
@@ -29,8 +29,11 @@ const FetchData = async (page) => {
       setloading(true);
       let data = await FetchData(page);
       
-     setPost(data.products);
-     // console.log(data.products)
+     setPost(data);
+    //  if(data!=undefined){
+    //     setPost(data)
+    //  }
+    
       setloading(false);
     } catch (err) {
       console.log("error");
@@ -66,9 +69,9 @@ const FetchData = async (page) => {
 
       <Box key={ele.id} textAlign="left">
       
-        <Image className="mensimg" src={ele.image[0].src} alt={ele.image[0].alt} />
-        <Text fontSize="1xl" marginLeft="">{ele.price}</Text>
-        <Text fontSize="1xl" marginLeft="">{ele.title}</Text>
+        <Image className="mensimg" src={ele.image_link} alt="" />
+        <Text fontSize="1xl" marginLeft="">{ele.price_sign}{ele.price}</Text>
+        <Text fontSize="1xl" marginLeft="">{ele.name}</Text>
         <Button bg="orange.00" color="white" padding="20px" margin="30px"  onClick={handleAlert}>Add To Basket</Button>
         </Box>
       
@@ -90,4 +93,4 @@ const FetchData = async (page) => {
       </>
   );
 }
-export default Womens
+export default Beauty

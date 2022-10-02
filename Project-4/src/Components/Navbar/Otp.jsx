@@ -29,7 +29,7 @@ import { useReducer } from "react";
 
 
     if (navi) {
-      return <Navigate to="/navigate" />;
+      return <Navigate to="/"/>;
     }
     return (
       <Flex
